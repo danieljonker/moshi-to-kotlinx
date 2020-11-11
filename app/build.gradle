@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'kotlinx-serialization'
 }
 
 android {
@@ -43,10 +44,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    /* Moshi */
     implementation("com.squareup.moshi:moshi:1.9.3")
     implementation("com.squareup.moshi:moshi-kotlin:1.9.3")
     implementation 'com.squareup.moshi:moshi-adapters:1.9.3'
 
-    implementation "io.reactivex.rxjava3:rxjava:3.0.7"
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    /* KotlinX */
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
+
 }

@@ -8,7 +8,9 @@ import nz.co.jonker.moshi_to_kotlinx.data.Video
 import nz.co.jonker.moshi_to_kotlinx.moshi
 
 class JsonWrapperTest : TestCase() {
-    private val jsonWrapper: NewsListJsonWrapper = MoshiWrapper(moshi)
+    private val moshiWrapper: NewsListJsonWrapper = MoshiWrapper(moshi)
+    private val kotlinxWrapper: NewsListJsonWrapper = KotlinxWrapper()
+
     private val expectedArticle = Article(
         "Article Headline",
         "Article Teaser Headline ",
@@ -33,8 +35,14 @@ class JsonWrapperTest : TestCase() {
     private val expectedData = NewsList("UK", listOf(expectedArticle, expectedVideo))
 
     // Test that the JsonWrapper is deserializing our sample data as we intend
-    fun `test json deserialization`() {
-        val deserializedJson = jsonWrapper.fromJson(sampleJson)
+    fun `test moshi json deserialization`() {
+        val deserializedJson = moshiWrapper.fromJson(sampleJson)
+
+        assertEquals(expectedData, deserializedJson)
+    }
+
+    fun `test kotlinx json deserialization`() {
+        val deserializedJson = kotlinxWrapper.fromJson(sampleJson)
 
         assertEquals(expectedData, deserializedJson)
     }
