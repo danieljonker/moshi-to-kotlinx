@@ -1,0 +1,54 @@
+{
+  "type": "news_list",
+  "name": "UK",
+  "_embedded": {
+    "contents": [
+      {
+        "id": 1234,
+        "teaserHeadline": "Article Teaser headline ",
+        "headline": "Article Headline",
+        "type": "story",
+        "creationDate": "2020-11-11T08:20:00Z",
+        "lastUpdate": "2020-11-11T12:12:00Z",
+        "teaserImage": {
+          "_links": {
+            "url": {
+              "href": " image url",
+              "templated": true,
+              "type": "image/jpeg"
+            }
+          },
+          "id": 2,
+          "altText": "image 1 alt text",
+          "caption": "image 1 caption",
+          "source": "PA"
+        }
+      },
+      {
+        "id": 5678,
+        "videoUrl": "https://youtu.be/9Auq9mYxFEE",
+        "teaserHeadline": "Video teaser headline",
+        "headline": "Video headline",
+        "type": "video",
+        "creationDate": "2020-11-11T11:44:38Z",
+        "lastUpdate": "2020-11-11T11:58:12Z",
+        "teaserImage": {
+          "_links": {
+            "url": {
+              "href": "image url",
+              "templated": true,
+              "type": "image/jpeg"
+            }
+          },
+          "id": 9876,
+          "altText": "image 2 alt text",
+          "caption": null,
+          "source": "PA"
+        },
+        "durationInSeconds": 91,
+        "videoType": "vod",
+        "aspectRatio": "1:1"
+      }
+    ]
+  }
+}
