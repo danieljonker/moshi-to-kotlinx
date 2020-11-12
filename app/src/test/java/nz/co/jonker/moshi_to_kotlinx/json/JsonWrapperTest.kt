@@ -10,23 +10,20 @@ class JsonWrapperTest : TestCase() {
 
     private val expectedArticle = Article(
         "Article Headline",
-        "Article Teaser Headline ",
         Image(
-            "article/url",
-            "Article Caption",
-            "Article Alt Text",
-            "PA"
+            "article/image/url",
+            "Image 1 caption",
+            "Image 1 altText"
         )
     )
     private val expectedVideo = Video(
         "Video Headline",
-        "Video Teaser Headline",
         Image(
-            "/video/image/url",
-            "Video image alt text",
-            "Video image alt text",
-            "PA"
-        )
+            "video/image/url",
+            "Image 2 altText",
+            "Image 2 altText"
+        ),
+        "video/url"
     )
 
     private val expectedData = NewsList("UK", listOf(expectedArticle, expectedVideo, Invalid))
@@ -47,60 +44,39 @@ class JsonWrapperTest : TestCase() {
 
 private val sampleJson = """
 {
-  "type": "news_list",
   "name": "UK",
   "_embedded": {
     "contents": [
       {
-        "id": 1234,
-        "teaserHeadline": "Article Teaser Headline ",
         "headline": "Article Headline",
         "type": "story",
-        "creationDate": "2020-11-11T08:20:00Z",
-        "lastUpdate": "2020-11-11T12:12:00Z",
         "teaserImage": {
           "_links": {
             "url": {
-              "href": "article/url",
-              "templated": true,
-              "type": "image/jpeg"
+              "href": "article/image/url"
             }
           },
-          "id": 2,
-          "altText": "Article Alt Text",
-          "caption": "Article Caption",
-          "source": "PA"
+          "altText": "Image 1 altText",
+          "caption": "Image 1 caption"
         }
       },
       {
-        "id": 5678,
-        "videoUrl": "https://youtu.be/9Auq9mYxFEE",
-        "teaserHeadline": "Video Teaser Headline",
+        "videoUrl": "video/url",
         "headline": "Video Headline",
         "type": "video",
-        "creationDate": "2020-11-11T11:44:38Z",
-        "lastUpdate": "2020-11-11T11:58:12Z",
         "teaserImage": {
           "_links": {
             "url": {
-              "href": "/video/image/url",
-              "templated": true,
-              "type": "image/jpeg"
+              "href": "video/image/url"
             }
           },
-          "id": 9876,
-          "altText": "Video image alt text",
-          "caption": null,
-          "source": "PA"
-        },
-        "durationInSeconds": 91,
-        "videoType": "vod",
-        "aspectRatio": "1:1"
+          "altText": "Image 2 altText",
+          "caption": null
+        }
       },
       {
-      "id": 5678,
-      "headline": "Some other headline",
-      "type": "something_else"
+        "key": "value",
+        "type": "something_else"
       }
     ]
   }

@@ -7,6 +7,6 @@ import kotlinx.serialization.Serializable
 @SerialName("video")
 data class Video(
     val headline: String,
-    val teaserHeadline: String,
-    val teaserImage: Image
+    val teaserImage: Image,
+    val videoUrl: String
 ) : ListItem

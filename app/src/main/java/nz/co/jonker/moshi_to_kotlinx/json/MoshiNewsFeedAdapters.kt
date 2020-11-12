@@ -18,7 +18,6 @@ internal class NewsFeedAdapter {
     @ToJson
     fun toJson(newsList: NewsList): NewsFeedJson {
         return NewsFeedJson(
-            "index",
             newsList.name,
             Embedded(newsList.data)
         )
@@ -31,8 +30,7 @@ internal class NewsFeedImageAdapter {
         return Image(
             json._links.url.href,
             json.caption ?: json.altText,
-            json.altText,
-            json.source
+            json.altText
         )
     }
 
@@ -44,8 +42,7 @@ internal class NewsFeedImageAdapter {
         return NewsFeedTeaserImage(
             links,
             image.altText,
-            image.caption,
-            image.source
+            image.caption
         )
     }
 }

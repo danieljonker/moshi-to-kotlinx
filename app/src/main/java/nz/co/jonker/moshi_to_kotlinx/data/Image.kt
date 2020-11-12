@@ -8,5 +8,4 @@ data class Image(
     val imageUrl: String,
     val caption: String,
     val altText: String,
-    val source: String
 )

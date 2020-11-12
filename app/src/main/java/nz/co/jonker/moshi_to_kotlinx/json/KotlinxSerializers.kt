@@ -8,7 +8,7 @@ import nz.co.jonker.moshi_to_kotlinx.data.Image
 import nz.co.jonker.moshi_to_kotlinx.data.NewsList
 
 
-object NewsFeedSerializer: KSerializer<NewsList> {
+object NewsFeedSerializer : KSerializer<NewsList> {
     override val descriptor: SerialDescriptor = NewsFeedJson.serializer().descriptor
 
     override fun deserialize(decoder: Decoder): NewsList {
@@ -21,9 +21,8 @@ object NewsFeedSerializer: KSerializer<NewsList> {
     }
 
     override fun serialize(encoder: Encoder, value: NewsList) {
-         val surrogate = NewsFeedJson(
-            "index",
-             value.name,
+        val surrogate = NewsFeedJson(
+            value.name,
             Embedded(value.data)
         )
 
@@ -40,8 +39,7 @@ object ImageSerializer : KSerializer<Image> {
         return Image(
             surrogate._links.url.href,
             surrogate.caption ?: surrogate.altText,
-            surrogate.altText,
-            surrogate.source
+            surrogate.altText
         )
     }
 
@@ -52,8 +50,7 @@ object ImageSerializer : KSerializer<Image> {
         val surrogate = NewsFeedTeaserImage(
             links,
             value.altText,
-            value.caption,
-            value.source
+            value.caption
         )
         encoder.encodeSerializableValue(NewsFeedTeaserImage.serializer(), surrogate)
     }

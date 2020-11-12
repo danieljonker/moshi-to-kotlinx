@@ -6,7 +6,7 @@ import nz.co.jonker.moshi_to_kotlinx.data.ListItem
 
 @Serializable
 @SerialName("NewsList")
-internal data class NewsFeedJson(val type: String, val name: String, val _embedded: Embedded) {}
+internal data class NewsFeedJson(val name: String, val _embedded: Embedded) {}
 
 @Serializable
 internal data class Embedded(val contents: List<ListItem>)
@@ -14,8 +14,7 @@ internal data class Embedded(val contents: List<ListItem>)
 
 @Serializable
 @SerialName("Image")
-internal data class NewsFeedTeaserImage(val _links: NewsFeedImageLinks, val altText: String, val caption: String?, val source: String)
-
+internal data class NewsFeedTeaserImage(val _links: NewsFeedImageLinks, val altText: String, val caption: String?)
 @Serializable
 internal data class NewsFeedImageLinks(val url: NewsFeedImageUrl)
 @Serializable
