@@ -1,10 +1,7 @@
 package nz.co.jonker.moshi_to_kotlinx.json
 
 import junit.framework.TestCase
-import nz.co.jonker.moshi_to_kotlinx.data.Image
-import nz.co.jonker.moshi_to_kotlinx.data.Article
-import nz.co.jonker.moshi_to_kotlinx.data.NewsList
-import nz.co.jonker.moshi_to_kotlinx.data.Video
+import nz.co.jonker.moshi_to_kotlinx.data.*
 import nz.co.jonker.moshi_to_kotlinx.moshi
 
 class JsonWrapperTest : TestCase() {
@@ -32,7 +29,7 @@ class JsonWrapperTest : TestCase() {
         )
     )
 
-    private val expectedData = NewsList("UK", listOf(expectedArticle, expectedVideo))
+    private val expectedData = NewsList("UK", listOf(expectedArticle, expectedVideo, Invalid))
 
     // Test that the JsonWrapper is deserializing our sample data as we intend
     fun `test moshi json deserialization`() {
@@ -99,6 +96,11 @@ private val sampleJson = """
         "durationInSeconds": 91,
         "videoType": "vod",
         "aspectRatio": "1:1"
+      },
+      {
+      "id": 5678,
+      "headline": "Some other headline",
+      "type": "something_else"
       }
     ]
   }

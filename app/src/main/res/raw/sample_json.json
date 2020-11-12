@@ -48,6 +48,13 @@
         "durationInSeconds": 91,
         "videoType": "vod",
         "aspectRatio": "1:1"
+      },
+      {
+      "id": 5678,
+      "videoUrl": "https://youtu.be/9Auq9mYxFEE",
+      "teaserHeadline": "UK's silent respect for war dead",
+      "headline": "UK's silent respect for war dead",
+      "type": "something_else"
       }
     ]
   }
